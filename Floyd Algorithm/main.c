@@ -38,8 +38,8 @@ void floyd(GraphType* g) {
 
 int main()
 {
-	int start = 0;
-	int end = 0;
+	int start = 0; // 시작점 변수
+	int end = 0; // 종료점 변수
 
 	GraphType g = { 10,
 	{{0,3,INF,INF,INF,11,12,INF,INF,INF},
@@ -54,37 +54,30 @@ int main()
 	{INF,INF,INF,16,17,INF,INF,15,10,0}}
 	};
 
-	floyd(&g);
+	floyd(&g); // floyd 알고리즘 실행
 
 	printf("Floyd-Algorithm\n");
 
-	for (int i = 0; i < 10; i++) {
-		printf("start Node : ");
+	for (int i = 0; i < 6; i++) {
+		printf("start Node : "); // 시작점 받기
 		scanf_s("%d", &start);
-		printf("end Node : ");
+		printf("end Node : "); // 종료점 받기
 		scanf_s("%d", &end);
 
-		printf("shortest Disttance : %d\n\n", A[start - 1][end - 1]);
+		printf("shortest Disttance : %d\n\n", A[start - 1][end - 1]); // 최단 거리 출력
 
-		printf("경로 : %d -> ",start);
+		// 경로 출력
+		printf("경로 : %d <- ", end);
 
 		int i = start - 1;
 		int j = end - 1;
 
-		while (1) {
-			if (P[i][j] + 1 == 0) break;
-
-			printf("%d -> ", P[i][j] + 1);
-			j = P[i][j] + 1;
-
-			int p = P[i][j];
-			if (p - 1 == 0) {
-				printf("%d -> ", P[i][j] + 1);
-				break;
-			}
+		while (P[i][j] != -1) {
+			printf("%d <- ", P[i][j] + 1);
+			j = P[i][j];
 		}
 
-		printf("%d\n\n", end);
+		printf("%d\n\n", start);
 	}
 
 	return 0;
