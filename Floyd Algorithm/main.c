@@ -10,7 +10,7 @@ typedef struct graphType {
 int A[MAX_VERTICES][MAX_VERTICES];
 int P[MAX_VERTICES][MAX_VERTICES];
 
-// floyd ¾Ë°í¸®Áò
+// floyd ì•Œê³ ë¦¬ì¦˜
 void floyd(GraphType* g) {
 	for (int i = 0; i < g->n; i++) {
 		for (int j = 0; j < g->n; j++) {
@@ -38,8 +38,8 @@ void floyd(GraphType* g) {
 
 int main()
 {
-	int start = 0; // ½ÃÀÛÁ¡ º¯¼ö
-	int end = 0; // Á¾·áÁ¡ º¯¼ö
+	int start = 0; // ì‹œì‘ì  ë³€ìˆ˜
+	int end = 0; // ì¢…ë£Œì  ë³€ìˆ˜
 
 	GraphType g = { 10,
 	{{0,3,INF,INF,INF,11,12,INF,INF,INF},
@@ -54,20 +54,20 @@ int main()
 	{INF,INF,INF,16,17,INF,INF,15,10,0}}
 	};
 
-	floyd(&g); // floyd ¾Ë°í¸®Áò ½ÇÇà
+	floyd(&g); // floyd ì•Œê³ ë¦¬ì¦˜ ì‹¤í–‰
 
 	printf("Floyd-Algorithm\n");
 
 	for (int i = 0; i < 6; i++) {
-		printf("start Node : "); // ½ÃÀÛÁ¡ ¹Ş±â
+		printf("start Node : "); // ì‹œì‘ì  ë°›ê¸°
 		scanf_s("%d", &start);
-		printf("end Node : "); // Á¾·áÁ¡ ¹Ş±â
+		printf("end Node : "); // ì¢…ë£Œì  ë°›ê¸°
 		scanf_s("%d", &end);
 
-		printf("shortest Disttance : %d\n\n", A[start - 1][end - 1]); // ÃÖ´Ü °Å¸® Ãâ·Â
+		printf("shortest Disttance : %d\n\n", A[start - 1][end - 1]); // ìµœë‹¨ ê±°ë¦¬ ì¶œë ¥
 
-		// °æ·Î Ãâ·Â
-		printf("°æ·Î : %d <- ", end);
+		// ê²½ë¡œ ì¶œë ¥
+		printf("ê²½ë¡œ : %d <- ", end);
 
 		int i = start - 1;
 		int j = end - 1;
