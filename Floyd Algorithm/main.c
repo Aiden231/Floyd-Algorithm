@@ -76,12 +76,6 @@ int main()
 
 			printf("%d -> ", P[i][j] + 1);
 			j = P[i][j] + 1;
-
-			int p = P[i][j];
-			if (p - 1 == 0) {
-				printf("%d -> ", P[i][j] + 1);
-				break;
-			}
 		}
 
 		printf("%d\n\n", end);
